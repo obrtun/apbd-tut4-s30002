@@ -402,7 +402,7 @@ public sealed class LinqExercises
     }
 
     /// <summary>
-    /// Challenge:
+    /// Challenge: 
     /// Show student cities and the number of active enrollments created by students from each city.
     /// Sort the result by the active enrollment count in descending order.
     ///
