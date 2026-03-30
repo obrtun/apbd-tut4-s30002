@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using UniversityDataAnalysis.Models;
+﻿using UniversityDataAnalysis.Models;
 
 namespace UniversityDataAnalysis.Data;
 

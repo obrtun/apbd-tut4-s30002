@@ -1,5 +1,5 @@
-﻿using System;
-using UniversityDataAnalysis.Data;
+﻿using UniversityDataAnalysis.Data;
+using UniversityDataAnalysis.Exercises;
 
 namespace UniversityDataAnalysis;
 
@@ -12,6 +12,9 @@ internal class Program
             Console.Clear();
             Console.WriteLine("=== University Data Analysis ===");
             Console.WriteLine("0. Show all data");
+            Console.WriteLine("1. Students from Warsaw");
+            Console.WriteLine("2. Student email addresses");
+            Console.WriteLine("3. Students sorted alphabetically");
             Console.WriteLine("9. Exit");
             Console.Write("Choose option: ");
 
@@ -23,7 +26,20 @@ internal class Program
             {
                 case "0":
                     ShowAllData();
-                    break; 
+                    break;
+
+                case "1":
+                    PrintResults(LinqExercises.GetStudentsFromWarsaw());
+                    break;
+
+                case "2":
+                    PrintResults(LinqExercises.GetStudentEmails());
+                    break;
+
+                case "3":
+                    PrintResults(LinqExercises.GetStudentsSortedAlphabetically());
+                    break;
+
                 case "9":
                     return;
 
@@ -33,7 +49,7 @@ internal class Program
             }
 
             Console.WriteLine();
-            Console.WriteLine("Press any key...");
+            Console.WriteLine("Press any key to continue...");
             Console.ReadKey();
         }
     }
@@ -41,19 +57,38 @@ internal class Program
     static void ShowAllData()
     {
         Console.WriteLine("STUDENTS:");
-        foreach (var s in UniversityData.Students)
-            Console.WriteLine(s);
+        foreach (var student in UniversityData.Students)
+        {
+            Console.WriteLine(student);
+        }
 
-        Console.WriteLine("\nLECTURERS:");
-        foreach (var l in UniversityData.Lecturers)
-            Console.WriteLine(l);
+        Console.WriteLine();
+        Console.WriteLine("LECTURERS:");
+        foreach (var lecturer in UniversityData.Lecturers)
+        {
+            Console.WriteLine(lecturer);
+        }
 
-        Console.WriteLine("\nCOURSES:");
-        foreach (var c in UniversityData.Courses)
-            Console.WriteLine(c);
+        Console.WriteLine();
+        Console.WriteLine("COURSES:");
+        foreach (var course in UniversityData.Courses)
+        {
+            Console.WriteLine(course);
+        }
 
-        Console.WriteLine("\nENROLLMENTS:");
-        foreach (var e in UniversityData.Enrollments)
-            Console.WriteLine(e);
+        Console.WriteLine();
+        Console.WriteLine("ENROLLMENTS:");
+        foreach (var enrollment in UniversityData.Enrollments)
+        {
+            Console.WriteLine(enrollment);
+        }
+    }
+
+    static void PrintResults(IEnumerable<string> results)
+    {
+        foreach (var item in results)
+        {
+            Console.WriteLine(item);
+        }
     }
 }
